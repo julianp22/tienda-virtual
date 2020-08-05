@@ -1,6 +1,6 @@
-<nav class="navbar navbar-light navbar-expand-lg bg-white shadow-sm">
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark shadow-sm">
 	<div class="container">
-		<a href="{{ route('home') }}" class="logo"><img id="logoBrand" src="img/logo.png" alt="Logo" class="img-responsive"></a>
+		<a href="{{ route('home') }}"><img id="logoBrand" src="img/logo.png" alt="Logo" class="img-responsive"></a>
 		<a class="navbar-brand" href="{{ route('home') }}">
 			{{ config('app.name')}} 
 		</a>
@@ -33,21 +33,34 @@
 				</li> -->
 
 				@guest
-					<li class="nav-item">
-						<a class="nav-link {{ setActive('login') }}" href="{{ route('login') }}">
-							<i class="fas fa-sign-in-alt"></i> Login
-						</a>
-					</li>
+				<li class="nav-item">
+					<a class="nav-link {{ setActive('login') }}" href="{{ route('login') }}">
+						<i class="fas fa-sign-in-alt"></i> Login
+					</a>
+				</li>
 				@else
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="event.preventDefault();
-		                    document.getElementById('logout-form').submit();">
-		                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-		                </a>
-		            </li>
+				<li class="nav-item">
+					<a class="nav-link" href="#" onclick="event.preventDefault();
+		                document.getElementById('logout-form').submit();">
+		                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+		            </a>
+		        </li>
 				@endguest
-
 			</ul>
+			<div id="social" class="col-md-6 col-lg-7 text-center text-md-right">
+				<a style="font-size: 20px;" href="https://facebook.com" target="_blank" class="fb-ic">
+					<i class="fab fa-facebook-f white-text mr-4"> </i>
+				</a>
+				<a style="font-size: 20px;" href="https://twitter.com" target="_blank" class="tw-ic">
+					<i class="fab fa-twitter white-text mr-4"> </i>
+				</a>
+				<a style="font-size: 20px;" href="https://youtube.com" target="_blank" class="li-ic">
+					<i class="fab fa-youtube white-text mr-4"> </i>
+				</a>
+				<a style="font-size: 20px;" href="https://instagram.com" target="_blank" class="ins-ic">
+					<i class="fab fa-instagram white-text"> </i>
+				</a>
+			</div>
 		</div>
 	</div>
 </nav>

@@ -2,11 +2,14 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Poppins', sans-serif;
+//$font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Colors
+
+$primary: #2973DD;
 $blue: #3490dc;
 $indigo: #6574cd;
 $purple: #9561e2;
@@ -17,3 +20,56 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+.nav a {
+    color: #fff;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: .3s linear;
+}
+
+.nav a:hover {
+    background: #2973DD;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+#social a {
+    transition: .3s linear;
+    color: #c0c0c0;
+}
+
+#social a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.nav i {
+    margin-right: 4px;
+    font-size: 16px;
+}
+
+.home{
+    color: #ff6b6b;
+}
+
+.fa-store{
+    color: #feca57;
+}
+
+.fa-sign-in-alt{
+    color: #1dd1a1;
+}
+
+#logoBrand {
+    height: 45px;
+    margin-right: 4px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
