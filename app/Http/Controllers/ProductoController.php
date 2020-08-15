@@ -2,83 +2,63 @@
 
 namespace App\Http\Controllers;
 
+use App\Producto;
+use App\Http\Requests\SaveProductosRequest;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     public function index()
     {
-        //
+        return view('productos.index', [
+            'productos' => Producto::latest()->paginate()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function show(Producto $producto) 
+    {
+        return view('productos.show', [
+            'producto' => $producto
+        ]);
+    }
+
     public function create()
     {
-        //
+        return view('productos.create', [
+            'producto' => new Producto
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(SaveProductoRequest $request)
     {
-        //
+        Producto::create($request->validated());
+
+        return redirect()->route('productos.index')->with('status', 'El producto fue agregado con exito');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function edit(Producto $producto)
     {
-        //
+        return view('productos.edit', [
+            'producto' => $producto
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Producto $producto, SaveProductoRequest $request)
     {
-        //
+        $producto->update($request->validated());
+
+        return redirect()->route('productos.show', $producto)->with('status', 'El producto fue actualizado con exito');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function destroy(Producto $producto)
     {
-        //
-    }
+        $producto->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('productos.index')->with('status', 'El producto fue eliminado con exito');
     }
 }

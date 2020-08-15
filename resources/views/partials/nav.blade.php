@@ -9,8 +9,8 @@
 	    	<span class="navbar-toggler-icon"></span>
 	    </button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="nav nav-pills">
+		<div class="collapse navbar-collapse smooth-scroll" id="navbarSupportedContent">
+			<ul class="nav navbar-nav nav-pills mr-auto">
 				<li class="nav-item">
 					<a class="nav-link {{ setActive('home') }}" href="{{ route('home') }}">
 						<i class="fas fa-home home"></i> @lang('Home')
@@ -31,36 +31,42 @@
 						<i class="fas fa-headset contact"></i> @lang('Contact')
 					</a>
 				</li> -->
-
 				@guest
 				<li class="nav-item">
 					<a class="nav-link {{ setActive('login') }}" href="{{ route('login') }}">
-						<i class="fas fa-sign-in-alt"></i> Login
+						<i class="fas fa-sign-in-alt"></i> @lang('Login')
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {{ setActive('register') }}" href="{{ route('register') }}">
+						<i class="fas fa-user-plus"></i> @lang('Register')
 					</a>
 				</li>
 				@else
 				<li class="nav-item">
 					<a class="nav-link" href="#" onclick="event.preventDefault();
 		                document.getElementById('logout-form').submit();">
-		                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+		                <i class="fas fa-sign-out-alt"></i> @lang('Logout')
 		            </a>
 		        </li>
 				@endguest
 			</ul>
-			<div id="social" class="col-md-6 col-lg-7 text-center text-md-right">
-				<a style="font-size: 20px;" href="https://facebook.com" target="_blank" class="fb-ic">
-					<i class="fab fa-facebook-f white-text mr-4"> </i>
-				</a>
-				<a style="font-size: 20px;" href="https://twitter.com" target="_blank" class="tw-ic">
-					<i class="fab fa-twitter white-text mr-4"> </i>
-				</a>
-				<a style="font-size: 20px;" href="https://youtube.com" target="_blank" class="li-ic">
-					<i class="fab fa-youtube white-text mr-4"> </i>
-				</a>
-				<a style="font-size: 20px;" href="https://instagram.com" target="_blank" class="ins-ic">
-					<i class="fab fa-instagram white-text"> </i>
-				</a>
-			</div>
+			<ul id="social" class="navbar-nav nav-flex-icons">
+				<li class="text-center">
+					<a style="font-size: 20px;" href="https://facebook.com" target="_blank" class="fb-ic">
+						<i class="fab fa-facebook-f white-text mr-4"> </i>
+					</a>
+					<a style="font-size: 20px;" href="https://twitter.com" target="_blank" class="tw-ic">
+						<i class="fab fa-twitter white-text mr-4"> </i>
+					</a>
+					<a style="font-size: 20px;" href="https://youtube.com" target="_blank" class="li-ic">
+						<i class="fab fa-youtube white-text mr-4"> </i>
+					</a>
+					<a style="font-size: 20px;" href="https://instagram.com" target="_blank" class="ins-ic">
+						<i class="fab fa-instagram white-text"> </i>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </nav>

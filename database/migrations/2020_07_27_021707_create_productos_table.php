@@ -17,10 +17,12 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            /*$table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');*/
+            $table->foreignId('user_id')->constrained(); //forma mas simple de FK
             $table->timestamps();
         });
+
     }
 
     /**

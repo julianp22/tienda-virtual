@@ -19,6 +19,6 @@ Route::view('/about', 'about')->name('about');
 Route::resource('producto', 'ProductoController')->names('productos');
 
 Route::view('/contacto', 'contact')->name('contact');
-Route::post('contact', 'MessageController@store')->name('messages.store');
+//Route::post('contact', 'MessageController@store')->name('messages.store');
 
 Auth::routes();

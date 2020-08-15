@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue' //Importing
 
 window.Vue = require('vue');
 
@@ -21,6 +22,9 @@ window.Vue = require('vue');
 
 Vue.component('home', require('./components/HomeComponent.vue').default);
 Vue.component('productos', require('./components/ProductosComponent.vue').default);
+
+Vue.use(BootstrapVue) // Telling Vue to use this in whole application
+Vue.use(IconsPlugin)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
