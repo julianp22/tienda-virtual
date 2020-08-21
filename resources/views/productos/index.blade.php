@@ -4,9 +4,10 @@
 
 @section('content')
 
-<div class="container">
+
+<div class="container py-4">
 	<div class="d-flex justify-content-between align-items-center mb-3">
-		<h1 class="display-4 mb-0">Portafolio</h1>
+		<h1 class="mb-0">Productos de la tienda</h1>
 
 		@auth
 			<a class="btn btn-primary" href="{{ route('productos.create') }}">

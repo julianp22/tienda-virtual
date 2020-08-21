@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        
         <form @submit.prevent="editarProducto(producto)" v-if="editarActivo">
             <h2>Editar Productos</h2>
             <input type="text" placeholder="Nombre"

@@ -1,5 +1,5 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-dark shadow-sm">
-	<div class="container">
+<nav class="navbar navbar-dark fixed-top navbar-expand-lg bg-dark shadow-sm">
+	<!--<div class="container">-->
 		<a href="{{ route('home') }}"><img id="logoBrand" src="img/logo.png" alt="Logo" class="img-responsive"></a>
 		<a class="navbar-brand" href="{{ route('home') }}">
 			{{ config('app.name')}} 
@@ -68,7 +68,7 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+	<!--</div>-->
 </nav>
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 	@csrf

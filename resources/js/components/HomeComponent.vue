@@ -86,7 +86,7 @@
       </b-card>
       
 
-      <b-card title="Pantalones" img-src="https://picsum.photos/300/300/?image=41" img-alt="Image" img-top>
+      <b-card title="Pantalones" style="color: #008b8b;" img-src="https://picsum.photos/300/300/?image=41" img-alt="Image" img-top>
         <template v-slot:footer>
           <small class="text-muted">Last updated 3 mins ago</small>
         </template>
