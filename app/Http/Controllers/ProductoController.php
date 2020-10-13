@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
-use App\Http\Requests\SaveProductosRequest;
+use App\Http\Requests\SaveProductoRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
@@ -36,8 +37,12 @@ class ProductoController extends Controller
 
     public function store(SaveProductoRequest $request)
     {
-        Producto::create($request->validated());
-
+        $file = $request->file('foto');
+        $originalname = $file->getClientOriginalName();
+        Producto::create([
+            'user_id' => auth()->id(),
+            'foto' => $file->storeAs('fotos', $originalname, 'public') // AGREGA FOTO
+        ] + $request->validated()); // se pone la id del usuario logeado en user_id
         return redirect()->route('productos.index')->with('status', 'El producto fue agregado con exito');
     }
 
@@ -50,6 +55,21 @@ class ProductoController extends Controller
 
     public function update(Producto $producto, SaveProductoRequest $request)
     {
+        
+
+        /*if ($request->hasFile('foto')) {
+
+            $imagePath = public_path('storage/'.$request->foto);
+            if(Storage::disk('public')->exists($imagePath)){
+                Storage::delete($producto->foto);
+            }
+            $file = $request->file('foto');
+            $originalname = $file->getClientOriginalName();
+            $image = $file->storeAs('fotos', $originalname, 'public');
+            //$data['foto'] = $image;
+            //$post->update($data);
+        }*/
+
         $producto->update($request->validated());
 
         return redirect()->route('productos.show', $producto)->with('status', 'El producto fue actualizado con exito');
@@ -57,8 +77,8 @@ class ProductoController extends Controller
 
     public function destroy(Producto $producto)
     {
+        Storage::delete($producto->foto);
         $producto->delete();
-
         return redirect()->route('productos.index')->with('status', 'El producto fue eliminado con exito');
     }
 }

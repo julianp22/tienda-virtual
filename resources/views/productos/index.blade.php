@@ -24,7 +24,7 @@
 						{{ $producto->nombre }}
 					</span>
 					<span class="text-black-50">
-						{{ $project->created_at->format('d/m/Y') }}
+						{{ $producto->created_at->format('d/m/Y') }}
 					</span>
 				</a>
 			</li>

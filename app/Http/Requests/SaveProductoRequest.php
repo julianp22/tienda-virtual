@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class SaveProductoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class SaveProductoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -25,7 +26,12 @@ class SaveProductoRequest extends FormRequest
     {
         return [
             'nombre' => 'required',
-            'marca' => 'required'
+            'marca' => 'required',
+            'prenda' => 'required',
+            'descripcion' => 'required',
+            'costo' => 'required',
+            'talla' => 'required',
+            'foto' => 'required|mimes:jpeg,png,bmp,tiff|max:4096'
         ];
     }
 
@@ -33,7 +39,12 @@ class SaveProductoRequest extends FormRequest
     {
         return [
             'nombre.required' => 'Se requiere de un nombre',
-            'marca.required' => 'Se requiere de una marca'
+            'marca.required' => 'Se requiere de una marca',
+            'prenda.required' => 'Se requiere de una prenda',
+            'descripcion.required' => 'Se requiere una descripcion',
+            'costo.required' => 'Se requiere de un costo',
+            'talla.required' => 'Se requiere de una talla',
+            'foto.required' => 'Se requiere una foto'
         ];
     }
 }

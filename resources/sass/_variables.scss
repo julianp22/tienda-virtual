@@ -9,7 +9,7 @@ $line-height-base: 1.6;
 
 // Colors
 
-$primary: #2973dd;
+$primary: #0074D9;
 $blue: #3490dc;
 $indigo: #6574cd;
 $purple: #9561e2;
@@ -37,18 +37,20 @@ body {
 }
 
 .nav a {
-  color: #fff;
+  color: #008b8b;
   margin-left: 10px;
   text-transform: uppercase;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 8px;
   transition: 0.3s linear;
 }
 
-.nav a:hover {
-  background: #2973dd;
-  color: #fff;
-  transform: scale(1.05);
+.nav i {
+  color: white;
+}
+
+.navbar-nav li:hover>.dropdown-menu {
+  display: block;
 }
 
 .navbar-collapse {
@@ -56,30 +58,27 @@ body {
 }
 
 #social a {
-  transition: 0.3s linear;
   color: #c0c0c0;
+  font-size: 15px;
 }
 
 #social a:hover {
   color: #fff;
-  transform: scale(1.05);
+}
+
+#dropdown {
+  color: #c0c0c0;
+}
+
+.dropdown-menu a:hover {
+  background-color: #0074D9;
+  color: white;
 }
 
 .nav i {
   margin-right: 4px;
   font-size: 16px;
-}
-
-.home {
-  color: #ff6b6b;
-}
-
-.fa-store {
-  color: #feca57;
-}
-
-.fa-sign-in-alt {
-  color: #1dd1a1;
+  color: #c0c0c0;
 }
 
 #logoBrand {
